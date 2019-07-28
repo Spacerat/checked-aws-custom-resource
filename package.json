@@ -1,0 +1,34 @@
+{
+  "name": "checked-aws-custom-resource",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc lib/*.ts",
+    "lint": "tslint *.ts{,x}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Spacerat/checked-aws-custom-resource"
+  },
+  "author": "Joseph Atkins-Turkish",
+  "license": "ISC",
+  "description": "A CDK AwsCustomResource wrapper which checks that its specified SDK function exists",
+  "devDependencies": {
+    "@aws-cdk/assert": "^1.2.0",
+    "@types/aws-sdk": "^2.7.0",
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.6.8",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  },
+  "types": "index.d.ts",
+  "prepublish": "tsc",
+  "dependencies": {
+    "@aws-cdk/core": "^1.2.0",
+    "@aws-cdk/custom-resources": "^1.2.0",
+    "aws-sdk": "^2.501.0"
+  }
+}
