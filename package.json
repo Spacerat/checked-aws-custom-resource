@@ -1,10 +1,10 @@
 {
   "name": "checked-aws-custom-resource",
-  "version": "0.1.0",
-  "main": "index.js",
+  "version": "0.1.2",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "build": "tsc lib/*.ts",
+    "build": "tsc src/*.ts",
     "lint": "tslint *.ts{,x}"
   },
   "repository": {
@@ -24,7 +24,7 @@
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
   },
-  "types": "index.d.ts",
+  "types": "src/index.d.ts",
   "prepublish": "tsc",
   "dependencies": {
     "@aws-cdk/core": "^1.2.0",
