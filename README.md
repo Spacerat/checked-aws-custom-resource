@@ -8,16 +8,18 @@ CloudFormation template for you and attempt to deploy it, just to eventually fai
 This wrapper resolves that by complaining when you give it SDK services or actions which don't exist. The price is fairly small:
 your CDK project will depend on `aws-sdk`.
 
-To install
+### Installation
 
-```
     npm install --save checked-aws-custom-resource
-```
 
-For example, this is fine.
+### Usage
+
+This class is used identically to `AwsCustomResource`. For example:
 
 ```ts
-new CheckedAwsCustomResource(stack, "Good", {
+import { CheckedAwsCustomResource } from "checked-aws-custom-resource";
+
+new CheckedAwsCustomResource(stack, "Resource", {
   onCreate: {
     service: "RDS",
     action: "modifyDBCluster",
@@ -30,26 +32,8 @@ new CheckedAwsCustomResource(stack, "Good", {
 });
 ```
 
-Meanwhile, here the captilization of "ModifyDBCluster" is wrong, so
-the class will throw an exception during instantiation:
+However, if the service or action is does not exist, e.g the action could be miscapitalized as "ModifyDBCluster",
+the class will throw an exception during instantiation. For example:
 
-```ts
-new CheckedAwsCustomResource(stack, "Bad", {
-  onCreate: {
-    service: "RDS",
-    action: "ModifyDBCluster",
-    parameters: {
-      DBClusterIdentifier: db.ref,
-      EnableHttpEndpoint: true
-    },
-    physicalResourceId: `resourceId`
-  }
-});
-```
-
-If this is in your Stack when you `cdk synth` it, you'll see a helpful error message.
-
-```
     $ cdk synth MyStack
     ModifyDBCluster is not a function in AWS.RDS
-```
