@@ -4,7 +4,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest tests/test.ts",
-    "build": "tsc src/*.ts",
+    "build": "tsc",
     "lint": "tslint *.ts{,x}"
   },
   "repository": {
